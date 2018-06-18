@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -21,7 +21,7 @@ const styles = {
   },
 };
 
-function App(props) {
+function Header(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
@@ -40,8 +40,8 @@ function App(props) {
   );
 }
 
-App.propTypes = {
+Header.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(App);
+export default withStyles(styles)(Header);
