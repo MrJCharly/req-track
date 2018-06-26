@@ -7,7 +7,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import DraftsIcon from '@material-ui/icons/Drafts';
 import ListIcon from '@material-ui/icons/List';
+
+import { Link } from 'react-router-dom';
 
 const styles = theme => ({
   root: {
@@ -22,21 +25,35 @@ function DrawerMenu(props) {
   return (
     <div className={classes.root}>
       <List component="nav">
-        <ListItem button component="a" href="/project/admin">
-          <ListItemText primary="Proyectos" />
-        </ListItem>
-        <ListItem button component="a" href="/req/admin">
-          <ListItemIcon>
-            <ListIcon />
-          </ListItemIcon>
-          <ListItemText primary="Requerimientos" />
-        </ListItem>
-        <ListItem button component="a" href="/developer/admin">
-          <ListItemIcon>
-            <AccountCircleIcon />
-          </ListItemIcon>
-          <ListItemText primary="Desarrolladores" />
-        </ListItem>
+        {/*project*/}
+        <Link to="/project/admin" style={{ textDecoration: 'none' }}>
+          <ListItem button color="primary" onClick={props.close}>
+            <ListItemIcon>
+              <ListIcon />
+            </ListItemIcon>
+            <ListItemText primary="Proyectos" />
+          </ListItem>
+        </Link>
+
+        {/*req*/}
+        <Link to="/req/admin" style={{ textDecoration: 'none' }}>
+          <ListItem button onClick={props.close}>
+            <ListItemIcon>
+              <DraftsIcon />
+            </ListItemIcon>
+            <ListItemText primary="Requerimientos" />
+          </ListItem>
+        </Link>
+
+        {/*developer*/}
+        <Link to="/developer/admin" style={{ textDecoration: 'none' }}>
+          <ListItem button onClick={props.close}>
+            <ListItemIcon>
+              <AccountCircleIcon />
+            </ListItemIcon>
+            <ListItemText primary="Desarrolladores" />
+          </ListItem>
+        </Link>
       </List>
     </div>
   );

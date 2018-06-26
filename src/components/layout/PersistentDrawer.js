@@ -137,7 +137,7 @@ class PersistentDrawer extends React.Component {
           </IconButton>
         </div>
         <Divider />
-        <DrawerMenu />
+          <DrawerMenu close={this.handleDrawerClose} />
         <Divider />
       </Drawer>
     );
