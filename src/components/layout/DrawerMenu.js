@@ -6,8 +6,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
-import InboxIcon from '@material-ui/icons/Inbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import ListIcon from '@material-ui/icons/List';
 
 const styles = theme => ({
   root: {
@@ -22,26 +22,20 @@ function DrawerMenu(props) {
   return (
     <div className={classes.root}>
       <List component="nav">
-        <ListItem button>
+        <ListItem button component="a" href="/project/admin">
+          <ListItemText primary="Proyectos" />
+        </ListItem>
+        <ListItem button component="a" href="/req/admin">
           <ListItemIcon>
-            <InboxIcon />
+            <ListIcon />
           </ListItemIcon>
-          <ListItemText primary="Inbox" />
+          <ListItemText primary="Requerimientos" />
         </ListItem>
-        <ListItem button>
+        <ListItem button component="a" href="/developer/admin">
           <ListItemIcon>
-            <DraftsIcon />
+            <AccountCircleIcon />
           </ListItemIcon>
-          <ListItemText primary="Drafts" />
-        </ListItem>
-      </List>
-      <Divider />
-      <List component="nav">
-        <ListItem button>
-          <ListItemText primary="Trash" />
-        </ListItem>
-        <ListItem button component="a" href="#simple-list">
-          <ListItemText primary="Spam" />
+          <ListItemText primary="Desarrolladores" />
         </ListItem>
       </List>
     </div>

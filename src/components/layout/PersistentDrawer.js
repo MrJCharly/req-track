@@ -15,6 +15,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import DrawerMenu from './DrawerMenu';
+import Body from '../body/Body';
 
 const drawerWidth = 240;
 
@@ -181,7 +182,7 @@ class PersistentDrawer extends React.Component {
             })}
           >
             <div className={classes.drawerHeader} />
-            <Typography>{'You think water moves fast? You should see ice.'}</Typography>
+            <Body />
           </main>
           {after}
         </div>
