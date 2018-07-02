@@ -1,12 +1,32 @@
 import fetch from 'cross-fetch';
 
 export const fetch_projects = () => (dispatch) => {
-  fetch('/fetch-projects').then(res => {
-    return res.json();
-  }, error => {
-    console.log('An error occurred: ', error);
-  });
+  dispatch(start_fetch());
+  fetch('/fetch-projects')
+    .then(res => {
+      return res.json();
+    }, error => {
+      console.log('An error occurred: ', error);
+    })
+    .then(json => {
+      console.log('Data arrived: ');
+    });
+  dispatch(end_fetch());
 };
+
+export const start_fetch = () => ({
+  type: 'SET_LOADING',
+  payload: {
+    loading: true
+  }
+});
+
+export const end_fetch = () => ({
+  type: 'SET_LOADING',
+  payload: {
+    loading: false
+  }
+});
 
 export const create = (item) => ({
   type: 'CREATE',

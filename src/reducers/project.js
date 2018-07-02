@@ -1,5 +1,6 @@
 const defaultState = {
-  projects: []
+  projects: [],
+  loading: true
 };
 
 export default (state = defaultState, action = {}) => {
@@ -13,6 +14,11 @@ export default (state = defaultState, action = {}) => {
       return {
         ...state,
         projects: action.payload.items
+      }
+    case 'SET_LOADING':
+      return {
+        ...state,
+        loading: action.payload.loading
       }
     case 'UPDATE_ITEM':
     case 'DELETE_ITEM':
