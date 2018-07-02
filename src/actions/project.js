@@ -2,7 +2,7 @@ import fetch from 'cross-fetch';
 
 export const fetch_projects = () => (dispatch) => {
   dispatch(start_fetch());
-  fetch('/fetch-projects')
+  fetch('http://localhost:3030/projects')
     .then(res => {
       return res.json();
     }, error => {
