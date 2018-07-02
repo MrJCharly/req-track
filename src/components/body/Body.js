@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import req_admin from '../reqs/Admin';
-import project_admin from '../project/Admin';
+import project_admin from '../../pages/project/Admin';
 import developer_admin from '../views/developer/Admin';
 
 function Body(props) {
