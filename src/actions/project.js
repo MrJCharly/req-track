@@ -4,14 +4,15 @@ export const fetch_projects = () => (dispatch) => {
   dispatch(start_fetch());
   fetch('http://localhost:3030/projects')
     .then(res => {
+      dispatch(end_fetch());
       return res.json();
     }, error => {
+      dispatch(end_fetch());
       console.log('An error occurred: ', error);
     })
     .then(json => {
-      console.log('Data arrived: ');
+      dispatch(insert_items(json));
     });
-  dispatch(end_fetch());
 };
 
 export const start_fetch = () => ({
@@ -28,10 +29,10 @@ export const end_fetch = () => ({
   }
 });
 
-export const create = (item) => ({
-  type: 'CREATE',
+export const insert_items = (items) => ({
+  type: 'INSERT_ITEMS',
   payload: {
-    item
+    items
   }
 });
 

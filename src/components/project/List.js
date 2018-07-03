@@ -1,9 +1,22 @@
 import React from 'react';
 
+
 export default function List (props) {
-  return (
-    <div>
+  if (!props.projects.length > 0) {
+    return (
       <p>No projects here.</p>
-    </div>
+    );
+  }
+
+  return (
+    <ul>
+      { props.projects.map(showProject) }
+    </ul>
   );
 }
+
+const showProject = (project) => (
+  <li key = { project._id }>
+    { project.name }
+  </li>
+);
