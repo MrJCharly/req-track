@@ -1,12 +1,16 @@
 import React from 'react';
 import LoadingBar from '../layout/LoadingBar';
-import PersistentDrawer from '../layout/PersistentDrawer';
+import Header from '../header/Header';
+import Drawer from '../layout/Drawer';
+import Body from '../body/Body';
 
 function App(props) {
   return (
     <div>
-      <LoadingBar />      
-      <PersistentDrawer />
+      <LoadingBar />
+      <Header />
+      <Drawer />
+      <Body />
     </div>
   );
 }

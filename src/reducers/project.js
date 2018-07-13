@@ -1,6 +1,6 @@
 const defaultState = {
   projects: [],
-  loading: true
+  loading: false
 };
 
 export default (state = defaultState, action = {}) => {

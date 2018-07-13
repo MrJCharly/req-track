@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ProjectList from '../../components/project/List';
+import ProjectTable from '../../components/project/Table';
 import { fetch_projects } from '../../actions/project';
 
 class Admin extends React.Component {
@@ -11,8 +12,8 @@ class Admin extends React.Component {
   render () {
     return (
       <div>
-        <p>Projects admin page</p>
-        <ProjectList projects = { this.props.projects }/>
+        {/*<ProjectList projects = { this.props.projects }/>*/}
+        <ProjectTable projects = { this.props.projects }/>
       </div>
     );
   }
