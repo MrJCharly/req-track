@@ -7,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import { connect } from 'react-redux';
+import { set_drawer_open } from '../../actions/main';
 
 const styles = {
   root: {
@@ -21,27 +23,40 @@ const styles = {
   },
 };
 
-function Header(props) {
-  const { classes } = props;
-  return (
-    <div className={classes.root}>
+class Header extends React.Component {
+  openDrawer = () => {
+    this.props.set_drawer_open(true);
+  }
+
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="title" color="inherit" className={classes.flex}>
-            Requirements tracking
-          </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
+      <Toolbar>
+      <IconButton onClick={this.openDrawer} className={classes.menuButton} color="inherit" aria-label="Menu">
+      <MenuIcon />
+      </IconButton>
+      <Typography variant="title" color="inherit" className={classes.flex}>
+      Requirements tracking
+      </Typography>
+      <Button color="inherit">Login</Button>
+      </Toolbar>
       </AppBar>
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
 Header.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Header);
+const mapStateToProps = (state) => {
+  return {
+    drawer_open: state.main.drawer_open
+  }
+}
+
+export default connect(mapStateToProps, { set_drawer_open })(withStyles(styles)(Header));
